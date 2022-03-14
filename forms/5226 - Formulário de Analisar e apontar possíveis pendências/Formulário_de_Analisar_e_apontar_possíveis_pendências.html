@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Form</title>
+
+	<link rel="stylesheet" type="text/css" href="/style-guide/css/fluig-style-guide.min.css">
+	<script src="/resources/js/jquery/jquery.js"></script>
+	<script src="/resources/js/jquery/jquery-ui.min.js"></script>
+	<script src="/resources/js/mustache/mustache-min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide.min.js"></script>
+
+	<!-- CUSTOM -->
+	<link href="/style-guide/css/fluig-style-guide-filter.min.css" rel="stylesheet" type="text/css">
+	<link href="/style-guide/css/fluig-style-guide-ratingstars.min.css" rel="stylesheet" type="text/css">
+	<script src="/style-guide/js/fluig-style-guide-filter.min.js"></script>
+	<script src="/style-guide/js/fluig-style-guide-ratingstars.min.js"></script>
+
+	<link href='/webdesk/customresources?cid=1&resourceName=temaFormulario/0.css' type='text/css' rel='stylesheet' />
+
+	<!-- <meta charset="utf-8">
+	</meta>
+	<link href='./custom/fluig-style-guide-flat.min.css' type='text/css' rel='stylesheet' />
+	<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+		integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+		crossorigin="anonymous"></script> -->
+
+	<link href='./custom/custom.css' type='text/css' rel='stylesheet' />
+	<script type="text/javascript" src="./custom/custom.js"></script>
+</head>
+
+<body class="fluig-style-guide">
+
+	<form class="totvs-form grid vertical create-form-components ui-sortable t0" name="createFormComponents"
+		style="padding-left: 10px; padding-right: 10px;">
+		<h1 class="title-form-application">Analisar e apontar possíveis pendências</h1>
+		<div class="paragraph-is-required system-message-information alert alert-info" role="alert">Todos os campos com
+			* são de preenchimento obrigatório.</div>
+
+		<div class="panel panel-info" id="div_00">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<!-- <a class="collapse-icon up" data-toggle="collapse" data-parent="#div_00" href="#tutorial"> -->
+					<span class="flaticon flaticon-message icon-sm"></span>
+					Leia-me
+					<!-- </a> -->
+				</h3>
+			</div>
+			<div id="tutorial" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-12">
+							<p id="inicio">*** LEIA COM ATENÇÃO! ***</p>
+							<p>
+								<b>Etapa Inicio:</b> Processo para análise e apontamento de pendências, para abrir uma
+								solicitação, clique em
+								"ENVIAR" e selecione o responsável por gerar o relatório no Protheus.
+							</p>
+							<p>
+								<b>Etapa Gerar Relatório:</b> Vá ao protheus, gere o relatório, volte ao fluig clique em
+								"ENVIAR" e selecione o responsável que irá realizar a análise
+							</p>
+							<p>
+								<b>Etapa Enviar Pendencias para as Unidades:</b> Envie um email avisando as unidades
+								sobre a pendência, após isso, volte ao fluig e clique em "ENVIAR" e atribua ao usuário
+								que irá aguardar o email (Provávelmente será para você mesmo)
+							</p>
+							<p>
+								<b>EtapaCorrigir e Redirecionar:</b> Verifique se as pendencias foi corrigidar, quando
+								for, comque em "ENVIAR" e encaminhe para quem irá realizar a validação.
+							</p>
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-info" id="div_01">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a class="collapse-icon up" data-toggle="collapse" data-parent="#div_01" href="#pendenciaNotas">
+						<span class="flaticon flaticon-message icon-sm"></span>
+						Pendencia nas Notas
+					</a>
+				</h3>
+			</div>
+			<div id="pendenciaNotas" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="form-field" data-type="radio" data-show-properties=""
+								data-field-name="AnalNota">
+								<div class="form-input">
+									<div class="form-group">
+										<label>Existe pendencia nas notas fiscais?</label>
+										<span class="required text-danger">
+											<strong>*</strong>
+										</span>
+										<div class="radio-options">
+											<div class="radio">
+												<label>
+													<input type="radio" name="AnalNota" value="Sim"
+														required="required">Sim
+												</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="AnalNota" value="Não"
+														required="required">Não
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="form-field" data-type="textarea" data-show-properties=""
+								data-field-name="atxt_pendencia_01">
+								<div class="form-input">
+									<div class="form-group">
+										<label>Justifique</label>
+										<textarea class="form-control" rows="3" name="atxt_pendencia_01" placeholder=""
+											data-size="big"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-info" id="div_02">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<a class="collapse-icon up" data-toggle="collapse" data-parent="#div_02"
+						href="#pendenciasCorrigidas_02">
+						<span class="flaticon flaticon-message icon-sm"></span>
+						Pendencias corrigidas
+					</a>
+				</h3>
+			</div>
+			<div id="pendenciasCorrigidas_02" class="panel-collapse collapse in">
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-sm-3">
+							<div class="form-field" data-type="radio" data-show-properties=""
+								data-field-name="analPendencia" style="position: relative; left: 0px; top: 0px;">
+								<div class="form-input">
+									<div class="form-group">
+										<label>Pendência Corrigida?</label>
+										<span class="required text-danger">
+											<strong>*</strong>
+										</span>
+										<div class="radio-options">
+											<div class="radio">
+												<label>
+													<input type="radio" name="analPendencia" value="Sim"
+														required="required">Sim
+												</label>
+											</div>
+											<div class="radio">
+												<label>
+													<input type="radio" name="analPendencia" value="Não"
+														required="required">Não
+												</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-9">
+							<div class="form-field" data-type="textarea" data-show-properties=""
+								data-field-name="atxt_pendencia_02">
+								<div class="form-input">
+									<div class="form-group">
+										<label>Justifique</label>
+										<textarea class="form-control" rows="3" name="atxt_pendencia_02" placeholder=""
+											data-size="big"></textarea>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+	<script type="text/javascript">
+		var keyDown = false, ctrl = 17, vKey = 86, Vkey = 118;
+
+		$(document).keydown(function (e) {
+			if (e.keyCode == ctrl) keyDown = true;
+		}).keyup(function (e) {
+			if (e.keyCode == ctrl) keyDown = false;
+		});
+
+		$('[data-only-numbers]').on('keypress', function (e) {
+			if (!e) {
+				var e = window.event;
+			}
+
+			if (e.keyCode > 0 && e.which == 0) {
+				return true;
+			}
+
+			if (e.keyCode) {
+				code = e.keyCode;
+			} else if (e.which) {
+				code = e.which;
+			}
+
+			if (code == 46) {
+				return true;
+			}
+
+			var character = String.fromCharCode(code);
+			if (character == '\b' || character == ' ' || character == '\t') {
+				return true;
+			}
+			if (keyDown && (code == vKey || code == Vkey)) {
+				return (character);
+			} else {
+				return (/[0-9]$/.test(character));
+			}
+		}).on('focusout', function (e) {
+			var $this = $(this);
+			if ($this.val() == "") {
+				return true;
+			}
+			$this.val($this.val().replace(/[^0-9\.]/g, ''));
+		}).on('paste', function (e) {
+			var $this = $(this);
+			setTimeout(function () {
+				$this.val($this.val().replace(/[^0-9\.]/g, ''));
+			}, 5);
+		});
+
+
+
+		$('.create-form-components').on('keyup', 'input[required="required"][type="text"], input[required="required"][type="number"], input[required="required"][type="date"], textarea[required="required"]', function () {
+			validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+		});
+
+		$('.create-form-components').on('change', 'input[required="required"][type="checkbox"], input[required="required"][type="radio"], select[required="required"]', function () {
+			validationFieldsForm($(this), $(this).parents('.form-field').data('type'));
+		});
+
+		function validationFieldsForm(field, type) {
+			if (type === "checkbox" || type === "radio") {
+				if (!field.is(':checked')) {
+					field.parents('.form-field').addClass('required');
+				} else {
+					field.parents('.form-field').removeClass('required');
+				}
+			} else {
+				if (!field.val().trim()) {
+					field.parents('.form-field').addClass('required');
+				} else {
+					field.parents('.form-field').removeClass('required');
+				}
+			}
+		}
+
+		var $zoomPreview = $(".zoom-preview");
+		if ($zoomPreview.length) {
+			$zoomPreview.parent().removeClass("input-group");
+			$zoomPreview.remove();
+		}
+
+		var ratings = $(".rating");
+		if (ratings.length > 0) ratingStars(ratings);
+		function ratingStars(stars) {
+			$.each(stars, function (i, obj) {
+				var field = $(this).closest(".form-group").find(".rating-value");
+				var tgt = $(obj);
+				tgt.html("");
+				var rating = FLUIGC.stars(tgt, { value: field.val() });
+				rating.on("click", function (o) {
+					field.val($(this).index() + 1);
+				});
+			});
+		}
+
+		$.each($("[data-date]"), function (i, o) {
+			var id = $(o).attr("id");
+			FLUIGC.calendar("#" + id);
+		});
+
+		$(document).ready(function () {
+			$.each($("[data-date]"), function (i, o) {
+				var id = $(o).attr("id");
+				if ($("#" + id).attr("readonly")) {
+					$("#" + id).data('DateTimePicker').disable();
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
